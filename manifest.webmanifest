@@ -1,0 +1,23 @@
+{
+  "name": "Serlam — время намаза",
+  "short_name": "Serlam",
+  "description": "Следующий намаз, обратный отсчёт и расписание на месяц. Работает без интернета.",
+  "lang": "ru",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "id": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#040507",
+  "theme_color": "#040507",
+  "categories": ["lifestyle", "utilities"],
+  "icons": [
+    {"src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},
+    {"src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"},
+    {"src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}
+  ],
+  "shortcuts": [
+    {"name": "Расписание на месяц", "short_name": "Расписание", "url": "./", "icons": [{"src": "icons/icon-192.png", "sizes": "192x192"}]}
+  ]
+}
