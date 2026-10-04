@@ -1216,9 +1216,13 @@ body.cat-px .cat-long{-webkit-mask-image:radial-gradient(circle,#000 0 46%,trans
 .sheet-foot .bar-btn.bar-btn{margin:0}
 #qibla-sheet .sheet-body,#month-sheet .sheet-body{padding-bottom:14px}
 /* ── Каркас: документ не прокручивается, прокрутка только внутри экрана. Таб-бар всегда на одном месте; отступ снизу берётся от высоты экрана и безопасной зоны ── */
-:root{--tbb:calc(clamp(10px,2.2vh,20px) + env(safe-area-inset-bottom,0px))}
-html,body{height:100%;min-height:0;overflow:hidden}
-.app{height:100%;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:none}
+/* отступ таб-бара: на айфоне с полоской «домой» бар опускается в безопасную зону и стоит в 22px от края, как у системных приложений */
+:root{--tbb:max(12px,calc(env(safe-area-inset-bottom,0px) - 12px))}
+html{height:100%;min-height:0;overflow:hidden;padding:0!important}
+/* установленное на айфон приложение: без этого окно короче экрана на высоту статус-бара и внизу остаётся пустая полоса */
+@media(display-mode:standalone){html{min-height:calc(100% + env(safe-area-inset-top,0px))}}
+body{position:fixed;inset:0;height:auto;min-height:0;overflow:hidden}
+.app{padding-top:calc(10px + env(safe-area-inset-top,0px));height:100%;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:none}
 .app::-webkit-scrollbar{display:none}
 /* ══ Система размеров. Всё ниже — одно место, где заданы линии, отступы, радиусы и высоты ══
    Две вертикальные линии: край поверхностей (--gut) и линия содержимого (--tx = --gut + --pad).
